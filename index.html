@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aster Book Store</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+
+        <div class="logo">
+            <img src="aster logo.png" alt="Book Store">
+            <a style="text-decoration: none; color: white;" href="#home">
+                <span>Aster Book Store</span>
+            </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-left">
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+                <a href="comics.html">
+                    <i class="fa fa-book"></i>
+                    Comics
+                </a>
+                </a>
+                <a href="novels.html">
+                    <i class="fa fa-book"></i>
+                    Novels
+                </a>
+            </div>
+
+            <div class="nav-center">
+
+                <!-- Search -->
+                <input type="text" id="searchInput" class="form-control " placeholder="Search "
+                    onkeyup="searchStudent()" />
+            </div>
+
+
+            <div class="nav-right">
+                <a href="order.html">
+                    <i style="font-size:24px" class="fa">&#xf07a;</i>
+                    <span>Order</span>
+                </a>
+                <a href="login.html" id="navLoginLink">
+                    <i style="font-size:24px" class="fa fa-sign-in"></i>
+                    <span>Login</span>
+                </a>
+                <a href="#" id="logoutBtn" style="display: none;">
+                    <i style="font-size:24px" class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-overlay">
+            <h1>Aster Books Store</h1>
+            <a href="comics.html" class="btn">Buy now</a>
+        </div>
+    </section>
+    <div class="guest-overlay" id="guestOverlay">
+        <div class="guest-form-container">
+            <p>Please choose how you'd like to proceed:</p>
+            <button id="loginBtn">Log In</button>
+            <button id="guestBtn">Continue as Guest</button>
+        </div>
+    </div>
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div style="padding: 20px 0 10px 20px;">
+            <span style="font-size: 45px;">📚</span>
+            <strong style="font-size: 50px; color: white; margin-left: 10px;">Feature Books</strong>
+        </div>
+
+        <!-- grid 1: COMIC-->
+        <div style="padding: 20px 0 10px 20px;">
+            <strong style="font-size: 30px; color: white; margin-left: 10px;">Comics</strong>
+        </div>
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa shounen bromance fantasy apocalype action"
+                data-description="DESCRIPTION : Dokja was an average office worker whose sole interest was reading his favorite web novel 'Three Ways to Survive the Apocalypse.' But when the novel suddenly becomes reality, he is the only person who knows how the world will end. Armed with this realization, Dokja uses his understanding to change the course of the story, and the world, as he knows it.">
+                <img src="https://static.qqtoon.com/common/fb216a95df3d414a94a728bf3b6115891737627227643.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Omniscient Reader's Viewpoint" />
+                <h3>Omniscient Reader's Viewpoint</h3>
+                <p class="price">$18.00</p>
+            </div>
+            <div class="product-card" data-category="manga shounen bromance sport"
+                data-description="Description : Yoichi Isagi lost the opportunity to go to the national high school championships because he passed to his teammate who missed instead of shooting himself. Isagi is one of 300 U-18 strikers chosen by Jinpachi Ego, a man who was hired by the Japan Football Association after the 2018 FIFA World Cup, to guide Japan to winning the World Cup by destroying Japanese football. Ego's plan is to isolate the 300 strikers into a prison-like institution called Above the Great Dao, in order to create the world's biggest egotist/striker, which has been lacking in Japanese football.">
+                <img src="https://cdnxyz.xyz/web/cover/10384/thumbnail.png" alt="Blue Lock" />
+                <h3>Blue Lock</h3>
+                <p class="price">$16.50</p>
+            </div>
+            <div class="product-card" data-category="manhwa shounen bromance fantasy supernatura action adventure"
+                data-description="DESCRIPTION : Jiwoo is a kind-hearted young man who harnesses the lightning quick reflexes of a cat to secretly make the world a better place – one saved little child or foster pet at a time. Kayden is a secret agent on the run, who finds himself stuck in the body of a…um…decidedly fat old fluffy cat. Together, armed with Jiwoo’s super powers and Kayden’s uber-smarts, they’re out to fight those forces who would let evil rule this world. That is, if they can stand each other long enough to get the job done.">
+                <img src="https://static.qqtoon.com/common/724bf79461c64a3cb27cb0e6ae76e69f1738923679636.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Eleceed" />
+                <h3>Eleceed</h3>
+                <p class="price">$17.50</p>
+            </div>
+            <div class="product-card" data-category="manhua shounen fantasy action martial art adventure comedy"
+                data-description="DESCRIPTION : After the revivification and return of the spirit energy, men and women did their best to capture every strands of spirit energy and train, except Lu Shu, with his Negative Emotion System, he becomes stronger by taunting others! He only wanted to protect his younger sister, but the change of an era in unavoidable, then all he could do was… to taunt others in passing, and become the strongest! Then, are you ready? Here comes Lu Shu, The Great Demon King">
+                <img src="https://preview.redd.it/spare-me-great-lord-anyone-read-this-manhua-is-it-good-v0-0req9fje176c1.jpg?auto=webp&s=f440332814dd742a1e98998d6fa12a0a428bc5e2"
+                    alt="Spare Me, Great Lord" />
+                <h3>Spare Me, Great Lord!</h3>
+                <p class="price">$18.00</p>
+            </div>
+        </div>
+        <!-- grid 2: COMIC-->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa shoujo fantasy transmigration romance magic"
+                data-description="DESCRIPTION : The beautiful Athanasia was killed at the hands of her own biological father, Claude de Alger Obelia, the cold-blooded emperor! It's just a silly bedtime story… until one woman wakes up to suddenly find she's become that unfortunate princess! She needs a plan to survive her doomed fate, and time is running out. Will she go with Plan A, live as quietly as possible without being noticed by the infamous emperor? Plan B, collect enough money to escape the palace? Or will she be stuck with Plan C, sweet-talking her way into her father's good graces?!">
+                <img src="https://resource.qqtoon.com/common/1378f4a4a4964cfcb25ca21db9e4698b1751006322464.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Who Made Me a Princess" />
+                <h3>Who Made Me a Princess</h3>
+                <p class="price">$16.00</p>
+            </div>
+            <div class="product-card" data-category="manhwa shoujo transmigration reborn romance historical"
+                data-description="DESCRIPTION : The great Lombardi family was once at the top of the empire. After the death of its patriarch, the fate of the family and that of Firentia, born from a Lombardi and a peasant, fall to ruin at the hands of her useless and cruel cousins. But when she's reincarnated as her seven-year-old self, she'll work to protect the family's honor, gain her grandpa Lulac's favor, and prevent her own father's death. In this lifetime, there's only one way for her to win: become the head of their mighty household.">
+                <img src="https://resource.qqtoon.com/common/809df4266b184315bc38a63e16529c571740119672174.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" alt="I Shall Master This Family" />
+                <h3>I Shall Master This Family</h3>
+                <p class="price">$17.00</p>
+            </div>
+            <div class="product-card" data-category="manhwa bl school life romance shounen ai"
+                data-description="DESCRIPTION : Hanuel, whose hobby is collecting pictures of his unrequited love, Chanil. However, he was caught by Hyunwoon, the head of the same class, by mistake. The sky is good and expects that Hyunwoon, a good student, will keep his secret... But, for some reason, it seems that Hyunwoon is playing in the hand...?">
+                <img src="https://resource.qqtoon.com/common/5c2c4963d56741148b1aac0f1d8603301740117351696.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Lost in The Cloud" />
+                <h3>Lost in The Cloud</h3>
+                <p class="price">$17.50</p>
+            </div>
+            <div class="product-card" data-category="manga shoujo medical historical romance"
+                data-description="DESCRIPTION : Maomao, a young woman trained in the art of herbal medicine, is forced to work as a lowly servant in the inner palace. Though she yearns for life outside its perfumed halls, she isn't long for a life of drudgery! Using her wits to break a curse afflicting the imperial heirs, Maomao attracts the attentions of the handsome eunuch Jinshi and is promoted to attendant food taster. But Jinshi has other plans for the erstwhile apothecary, and soon Maomao is back to brewing potions and solving mysteries">
+                <img src="https://cdnxyz.xyz/web/cover/89286/thumbnail.png"
+                    alt="The Apothecary Diaries" />
+                <h3>The Apothecary Diaries</h3>
+                <p class="price">$18.00</p>
+            </div>
+        </div>
+
+        <!-- grid 3: NOVEL -->
+         <div style="padding: 20px 0 10px 20px;">
+            <strong style="font-size: 30px; color: white; margin-left: 10px;">Novels</strong>
+        </div>
+         <div class="product-grid">
+            <div class="product-card" data-category="danmei yaoi apocalype Mpreg fantasy action zombie adventure"
+                data-description="DESCRIPTION : Yun Che, a big shot in the doomsday, who even the militaries drooled upon, finally died in the hands of his beloved and family. After reincarnation, he wanted to live for his own! Xing Feng, a rooting third military generation, didn’t lay his heart in the army at all. So when he turned to 20, he chose to leave the army and went into business. When the doomsday came, he accidentally met Yun Chen and started a new chapter of his life, meanwhile, his moral bottom line kept hitting a new low…">
+                <img src="https://cdn.novelupdates.com/images/2019/12/ymr.jpg"
+                    alt="Young Military Rarities" />
+                <h3>Young Military Rarities</h3>
+                <p class="price">$15.50</p>
+            </div>
+            <div class="product-card" data-category="shounen xainxia fantasy mystery"
+                data-description="DESCRIPTION : My grandfather is very eccentric, performing daily rituals of offering incense to himself, standing in front of his own spirit tablet and eating candles.Villagers are fearful of my grandfather.I am fearful of him too.Later, I discovered that what they were afraid of was not my grandfather, but me.Even grandfather is afraid of me....My name is Chen Shi.The Chen of honesty, the Shi of sincerity.">
+                <img src="https://static.novelbuddy.com/images/above-the-great-dao.png" alt="Above the Great Dao" />
+                <h3>Above the Great Dao</h3>
+                <p class="price">$15.00</p>
+            </div>
+            <div class="product-card" data-category="shounen xuanhuan fantasy mystery action adventure"
+                data-description="DESCRIPTION : In the waves of steam and machinery, who could achieve extraordinary? In the fogs of history and darkness, who was whispering? I woke up from the realm of mysteries and opened my eyes to the world.">
+                <img src="https://static.novelbuddy.com/images/lord-of-the-mysteries.png"
+                    alt="Lord of the Mysteries" />
+                <h3>Lord of the Mysteries</h3>
+                <p class="price">$16.00</p>
+            </div>
+            <div class="product-card" data-category="shounen fantasy action"
+                data-description="DESCRIPTION : Kai of the Sorcerer's Tower is one of the last mages left, barely surviving in a world ruled by creatures of the dark where the era of mages ended, and most of the lands got contaminated with dead mana. To save his world and fulfil his master's last wish, he put himself through a forbidden ritual, risking his soul being ripped into pieces to make his way into the past. In an era with abundant mana an era yet to enter the Golden Era of Magic. Things go wrong, of course, as they always do, and he finds himself thousands of years before the world fell to mana contamination in the body of a young lord, Arzan. All is not well, though, as the young lord was murdered by someone right at the cusp of a beast wave threatening the territory, while larger threats loom on the horizon. There was a lot to do for Kai to regain his former strength in this time of primitive technology, but then again, he might just be able to change that.">
+                <img src="https://static.novelbuddy.com/images/magus-reborn.png"
+                    alt="Magus Reborn" />
+                <h3>Magus Reborn</h3>
+                <p class="price">$14.50</p>
+            </div>
+        </div>
+
+        <!-- grid 4: NOVEL -->
+         <div class="product-grid">
+            <div class="product-card" data-category="shoujo sci-fi mecha action martial art adventure"
+                data-description="DESCRIPTION :  After dying from a strange terminal illness, Ling Lan was reborn into a world 10000 years into the future. Although she dearly wished she could just live a peaceful and uneventful life in her new healthy body, fate had other plansForced to disguise herself as a boy just so she could inherit her deceased father's premium military benefits, Ling Lan's journey to adulthood was full of challenges. After much difficulty, she finally turned sixteen when she could drop the charade. But before she could grasp her newfound freedom to get married and start her own family, a twist of fate results in her being thgridn into the Federation's top military boys' school.With these twists of fate, Ling Lan had little choice but to walk further and further down a path of no return, one of cold and aloof dominance">
+                <img src="https://static.novelbuddy.com/images/its-not-easy-to-be-a-man-after-travelling-to-the-future.png"
+                    alt="It's Not Easy to Be a Man After Travelling to the Future" />
+                <h3>It's Not Easy to Be a Man After Travelling to the Future</h3>
+                <p class="price">$15.50</p>
+            </div>
+            <div class="product-card" data-category="danmei yaoi apoclype transmigration reborn zombie martial art action harem"
+                data-description="DESCRIPTION : This is a story about Gong Lixin who was the young master of an ancient underground palace in the ancient times. He was raised by his master and forced to partake sexual relationships with numerous people to cultivate his Yin Body. His master who has a Yang Body was going to absorb him after he has reach a level to become stronger. MC refused and killed his master also dying at the same time. Then he transmigrated to the modern time and thinking he will enjoy peaceful life, the end of the world arrived.">
+                <img src="https://static.novelbuddy.com/images/lord-of-end-of-world.png" alt="Lord of End of World" />
+                <h3>Lord of End of World</h3>
+                <p class="price">$13.00</p>
+            </div>
+            <div class="product-card" data-category="shoujo fantasy historical western reborn romance"
+                data-description="DESCRIPTION : In the original lines of the novel, I was a villainessused as a political tool by my father and older brotherwho ended up dying at the hands of my future husband.">
+                <img src="https://static.novelbuddy.com/images/how-to-get-my-husband-on-my-side.png"
+                    alt="How to Get My Husband on My Side" />
+                <h3>How to Get My Husband on My Side</h3>
+                <p class="price">$15.00</p>
+            </div>
+            <div class="product-card" data-category="danmei fantasy action"
+                data-description="DESCRIPTION : One day, You Huo and his famiIy was puIIed into an exam caIIed the GIobaI University Entrance Examination. Going through exams together with other unfortunate examinees, their Iives are put at stake and they can only Iive by passing each exam. However, something about these exams and the system controIIing it didn't seem right lt seemed to be trying to trap the examinees with ridiculous ruIes and strange questions">
+                <img src="https://static.novelbuddy.com/images/global-university-entrance-examination.png"
+                    alt="Global University Entrance Examination" />
+                <h3>Global University Entrance Examination</h3>
+                <p class="price">$15.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT DETAIL -->
+    <div id="productDetailModal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modalImg" src alt="Book Cover">
+                <div class="modal-text">
+                    <h2 id="modalTitle">Book Title</h2>
+                    <p id="modalPrice" class="price" style="color: #0ef; font-weight: bold; font-size: 20px;"></p>
+                    <p id="modalDescription" style="margin: 15px 0; line-height: 1.6; color: white;"></p>
+                    <button id="modalAddToCartBtn" class="btn small">Add to
+                        Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">product</a>
+                <a href="#">about</a>
+            </div>
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#">My account</a>
+                <a href="#">My order</a>
+                <a href="#">My favorite</a>
+            </div>
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">Cambodia</a>
+                <a href="#">Japan</a>
+                <a href="#">China</a>
+                <a href="#">USA</a>
+                <a href="#">laos</a>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+123-456-7890</a>
+                <a href="#">Email: kookie@example.com</a>
+                <a href="#">number china -2578661</a>
+                <img src="https://pngimg.com/uploads/mastercard/mastercard_PNG23.png" width="45px">
+                <img src="https://d28wu8o6itv89t.cloudfront.net/images/Visadebitcardpng-1599584312349.png" width="40px">
+                <img src="https://fm.cnbc.com/applications/cnbc.com/resources/product_select/2024/09/06/Paypal_Debit_Card_2024.png"
+                    width="40px">
+
+            </div>
+        </div>
+        <div class="credit"> credit by
+            <span>© 2025 TobSomphors </span> | All Rights Reserved
+        </div>
+    </section>
+
+    <!-- footer section ends-->
+    <script src="main.js"></script>
+
+
+
+</body>
+
+</html>

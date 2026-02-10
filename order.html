@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Aster Book Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --primary-bg: #1a1a1a;
+            --card-bg: #fdf8f5; 
+            --aster-purple: #8e2de2;
+            --brown-accent: #6d4c41; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            margin: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background: #8e2de2;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #8e2de2;
+        }
+
+        .back-link {
+            color: var(--card-bg);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 30px auto;
+            gap: 20px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .cart-section {
+            flex: 2;
+            min-width: 350px;
+        }
+
+        .cart-title {
+            color: var(--aster-purple);
+            font-family: serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .item-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .item-image {
+            width: 80px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-details h4 {
+            margin: 0;
+            color: var(--brown-accent);
+            font-size: 18px;
+        }
+
+        .price-each {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .remove-btn {
+            background: none;
+            border: 1px solid #ff5252;
+            color: #ff5252;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--aster-purple);
+            font-weight: bold;
+        }
+
+        /* Order Summary Section */
+        .summary-section {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            height: fit-content;
+            min-width: 300px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .total-row {
+            border-top: 2px solid #eee;
+            margin-top: 15px;
+            padding-top: 15px;
+            font-weight: bold;
+            font-size: 22px;
+            color: #000;
+        }
+
+        .order-type-toggle {
+            display: flex;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .toggle-btn.active {
+            background: var(--aster-purple);
+            color: white;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .place-order-btn {
+            background: var(--aster-purple);
+            color: white;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .cancel-btn {
+            background: white;
+            color: var(--aster-purple);
+            border: 2px solid var(--aster-purple);
+            margin-top: 10px;
+        }
+
+        .cancel-btn:hover {
+            background: #f8f0ff;
+        }
+
+        #successModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" style="font-weight:bold; font-size:20px;">
+            <a style="text-decoration: none; color: white;" href="index.html">
+                Aster Book Store
+            </a>
+        </div>
+        <a href="index.html" class="back-link"><i class="fa fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <div class="main-container">
+        <div class="cart-section">
+            <h1 class="cart-title">Your Cart</h1>
+            <div id="cartList"></div>
+            <button onclick="location.href='books.html'" style="background:none; border: 1px solid var(--aster-purple); color:var(--aster-purple); padding:10px; border-radius:5px; cursor:pointer; margin-top:20px; font-weight:bold;">
+                <i class="fa fa-plus"></i> Add More Items
+            </button>
+        </div>
+
+        <div class="summary-section">
+            <h3 style="margin-top:0; border-bottom:1px solid #eee; padding-bottom:10px; color: var(--aster-purple);">Order Summary</h3>
+            
+            <div class="summary-row"><span>Subtotal</span> <span id="subtotal">$0.00</span></div>
+            <div class="summary-row"><span>Tax (8.5%)</span> <span id="tax">$0.00</span></div>
+            <div class="summary-row"><span>Service Fee</span> <span id="fee">$0.50</span></div>
+            <div class="summary-row total-row"><span>Total</span> <span id="total">$0.00</span></div>
+
+            <div class="order-type-toggle">
+                <button class="toggle-btn active" id="pickupBtn" onclick="setOrderType('pickup')">Pickup</button>
+                <button class="toggle-btn" id="deliveryBtn" onclick="setOrderType('delivery')">Delivery</button>
+            </div>
+
+            <div id="pickupTimeSection">
+                <label style="font-size:14px; font-weight:bold;">Preferred Pickup Time</label>
+                <input type="time" id="pickupTime" class="input-field">
+            </div>
+
+            <div id="deliveryAddress" style="display:none;">
+                <label style="font-size:14px; font-weight:bold;">Delivery Address</label>
+                <textarea class="input-field" placeholder="Enter your address..."></textarea>
+            </div>
+
+            <label style="font-size:14px; font-weight:bold;">Order Notes</label>
+            <textarea id="orderNotes" class="input-field" rows="3" placeholder="Any special instructions?"></textarea>
+
+            <button class="action-btn place-order-btn" onclick="processOrder()">
+                <i class="fa fa-check"></i> Place Order
+            </button>
+            
+            <button class="action-btn cancel-btn" onclick="cancelOrder()">
+                <i class="fa fa-times"></i> Cancel Order
+            </button>
+        </div>
+    </div>
+
+    <div id="successModal">
+        <div class="modal-box">
+            <div class="success-icon"><i class="fa fa-check-circle"></i></div>
+            <h2 style="margin:0;">Order Confirmed!</h2>
+            <p><strong id="orderNum"></strong></p>
+            <button class="action-btn place-order-btn" onclick="window.location.href='index.html'">Return to Home</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('asterCart')) || [];
+
+        function renderCart() {
+            const cartList = document.getElementById('cartList');
+            if(!cartList) return;
+            cartList.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<div style="text-align:center; padding:50px; color:#999;"><h3>Your cart is empty</h3></div>';
+                updateTotals(0);
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                subtotal += (item.price * item.quantity);
+                cartList.innerHTML += `
+                    <div class="item-card">
+                        <img src="${item.image}" class="item-image">
+                        <div class="item-details">
+                            <h4>${item.name}</h4>
+                            <p class="price-each">$${item.price.toFixed(2)} each</p>
+                            <button class="remove-btn" onclick="removeItem(${index})"><i class="fa fa-trash"></i> Remove</button>
+                        </div>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                            <strong>${item.quantity}</strong>
+                            <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+                        </div>
+                    </div>`;
+            });
+            updateTotals(subtotal);
+        }
+
+        function updateQty(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) cart.splice(index, 1);
+            saveAndRefresh();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveAndRefresh();
+        }
+
+        function saveAndRefresh() {
+            localStorage.setItem('asterCart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function updateTotals(subtotal) {
+            const tax = subtotal * 0.085;
+            const fee = subtotal > 0 ? 0.50 : 0;
+            const total = subtotal + tax + fee;
+            document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('tax').innerText = `$${tax.toFixed(2)}`;
+            document.getElementById('fee').innerText = `$${fee.toFixed(2)}`;
+            document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+        }
+
+        function setOrderType(type) {
+            const deliveryBox = document.getElementById('deliveryAddress');
+            const pickupBox = document.getElementById('pickupTimeSection');
+            const pBtn = document.getElementById('pickupBtn');
+            const dBtn = document.getElementById('deliveryBtn');
+
+            if (type === 'delivery') {
+                deliveryBox.style.display = 'block';
+                pickupBox.style.display = 'none';
+                dBtn.classList.add('active'); 
+                pBtn.classList.remove('active');
+            } else {
+                deliveryBox.style.display = 'none';
+                pickupBox.style.display = 'block';
+                pBtn.classList.add('active'); 
+                dBtn.classList.remove('active');
+            }
+        }
+
+        function cancelOrder() {
+            if (confirm("Clear your cart and return home?")) {
+                localStorage.removeItem('asterCart');
+                window.location.href = "index.html";
+            }
+        }
+
+        function processOrder() {
+            if (cart.length === 0) return alert("Cart is empty!");
+            
+            // Pickup validation
+            const isPickup = document.getElementById('pickupBtn').classList.contains('active');
+            const timeValue = document.getElementById('pickupTime').value;
+            if (isPickup && !timeValue) {
+                return alert("Please select a pickup time!");
+            }
+
+            document.getElementById('orderNum').innerText = "Order #AS" + Math.floor(Math.random() * 899999 + 111111);
+            document.getElementById('successModal').style.display = 'flex';
+            localStorage.removeItem('asterCart');
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>

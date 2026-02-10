@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aster Book Store | Comics</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+<style>
+    .mySlides {
+        display: none;
+    }
+
+    .w3-left,
+    .w3-right,
+    .w3-badge {
+        cursor: pointer
+    }
+
+    .w3-badge {
+        height: 13px;
+        width: 13px;
+        padding: 0
+    }
+</style>
+
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+
+        <div class="logo">
+            <img src="aster logo.png" alt="Book Store">
+            <a style="text-decoration: none; color: white;" href="index.html">
+                <span>Aster Book Store</span>
+            </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-left">
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+                <a href="comics.html">
+                    <i class="fa fa-book"></i>
+                    Comics
+                </a>
+                </a>
+                <a href="novels.html">
+                    <i class="fa fa-book"></i>
+                    Novels
+                </a>
+                
+            </div>
+
+            <div class="nav-center">
+
+                <!-- Search -->
+                <input type="text" id="searchInput" class="form-control" placeholder="Search "
+                    onkeyup="searchStudent()" />
+            </div>
+
+            <div class="nav-right">
+                <a href="order.html">
+                    <i style="font-size:24px" class="fa">&#xf07a;</i>
+                    <span>Order</span>
+                </a>
+                <a href="login.html" id="navLoginLink">
+                    <i style="font-size:24px" class="fa fa-sign-in"></i>
+                    <span>Login</span>
+                </a>
+                <a href="#" id="logoutBtn" style="display: none;">
+                    <i style="font-size:24px" class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+    <div style="padding: 20px 0 10px; display: flex; justify-content: center;">
+            <strong style="font-size: 50px; color: white; margin-left: 10px;">🌟Most Popular BooksS🌟</strong>
+        </div>
+    <div class="w3-content w3-display-container" style="max-width:900px">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/32f908e952bf4459876fa1350aa1f7641735552798803.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/3a992792a6d3427fb06af827bc682bf01747046743619.webp?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/83bcb91d38ea4b85b6bc038f2d964ec91740124408086.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/1299f8fc095a4ddfa000c4eebae19dd81737944113141.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/fee3224b21744a0e8204bba92e3f5b551747124229763.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+            style="width:100%">
+            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
+        </div>
+    </div>
+
+    <div class="guest-overlay" id="guestOverlay">
+        <div class="guest-form-container">
+            <h2>Welcome to Aster Book Store</h2>
+            <p>Please choose how you'd like to proceed:</p>
+            <button id="loginBtn">Log In</button>
+            <button id="guestBtn">Continue as Guest</button>
+        </div>
+    </div>
+
+    <!-- CATEGORY BUTTONS -->
+<div style="padding: 20px 0 10px; display: flex; justify-content: center;">
+            <strong style="font-size: 50px; color: white; margin-left: 10px;">📘Genres</strong>
+        </div>
+
+    <div class="category-filter">
+        <button class="cat-btn active" data-category="all">All</button>
+        <button class="cat-btn" data-category="manga">Manga</button>
+        <button class="cat-btn" data-category="manhwa">Manhwa</button>
+        <button class="cat-btn" data-category="manhua">Manhua</button>
+        <button class="cat-btn" data-category="reborn">Reborn</button>
+        <button class="cat-btn" data-category="transmigration">Transmigration</button>
+        <button class="cat-btn" data-category="romance">Romance</button>
+        <button class="cat-btn" data-category="school life">School Life</button>
+        <button class="cat-btn" data-category="fantasy">Fantasy</button>
+        <button class="cat-btn" data-category="martial art">Martial Art</button>
+        <button class="cat-btn" data-category="apocalype">Apocalype</button>
+        <button class="cat-btn" data-category="zombie">Zombie</button>
+        <button class="cat-btn" data-category="historical">Historical</button>
+        <button class="cat-btn" data-category="shounen">Shounen</button>
+        <button class="cat-btn" data-category="shoujo">Shoujo</button>
+        <button class="cat-btn" data-category="hunter">Hunter</button>
+        <button class="cat-btn" data-category="sport">Sport</button>
+        <button class="cat-btn" data-category="action">Action</button>
+        <button class="cat-btn" data-category="horror">Horror</button>
+        <button class="cat-btn" data-category="magic">Magic</button>
+        <button class="cat-btn" data-category="supernatural">Supernatural</button>
+        <button class="cat-btn" data-category="adventure">Adventure</button>
+        <button class="cat-btn" data-category="system">System</button>
+        <button class="cat-btn" data-category="bromance">Bromance</button>
+        <button class="cat-btn" data-category="bl">BL</button>
+        <button class="cat-btn" data-category="shounen ai">Shounen Ai</button>
+        <button class="cat-btn" data-category="yaoi">Yaoi</button>
+
+    </div>
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div style="padding: 20px 0 10px 20px;">
+            <span style="font-size: 45px;">📖</span>
+            <strong style="font-size: 50px; color: white; margin-left: 10px;">Our Comics</strong>
+        </div>
+
+
+        <!-- grid 1: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa shounen hunter action magic adventure system"
+                data-description="DESCRIPTION : 10 years ago, after 'the Gate' that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as 'Hunters'. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I'm someone who has to risk his life in the lowliest of dungeons, the 'World's Weakest'. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!">
+                <img src="https://resource.qqtoon.com/common/cb5d9da0ec6e42d7b9b1c88d941a91331740119667777.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Solo Leveling" />
+                <h3>Solo Leveling</h3>
+                <p class="price">$19.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Solo Leveling', 19.0, 'https://resource.qqtoon.com/common/cb5d9da0ec6e42d7b9b1c88d941a91331740119667777.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa action shounen magic adventure fantasy" 
+            data-description="DESCRIPTION : Humans were suddenly summoned to become 'Walkers', and they needed to clear the tower to save the world.Then, the 'Stone of Regression' was discovered. Walkers could now 'return' to the past. And slowly everyone left.Humanity's last hope, 'Carpe Diem', was formed by people who refused to abandon the world.But once the last Walker reached floor 100, he no longer knew what to believe.This is the tale of the only man who didn't regress, despite everyone else going back to the past.">
+                <img src="https://static.qqtoon.com/common/b24e8266a17e49b7a58d6f1bda0d3ceb1735552779362.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="The World After the Fall" />
+                <h3>The World After the Fall</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The World After the Fall', 18.5, 'https://static.qqtoon.com/common/b24e8266a17e49b7a58d6f1bda0d3ceb1735552779362.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shounen hunter system action fantasy" 
+            data-description="DESCRIPTION : SeoJoon, who had been working to save in order to pay off his dead parents' debt and to attend a hunter academy, ended up needing to spend all his savings for surgery due to an unfortunate accident.In his moment of despair, a weird ad played.[You can also become an awakener!]He decided to register since he had nothing else to lose.[Mr. Kim SeoJoon, welcome to Transcension Academy.]This hunter academy is on a different dimension' than other hunter academies!In the age of private hunter education, you can also become a transcended'!">
+                <img src="https://static.qqtoon.com/common/029a81b195b241079ab6bf09f1156ea71737440256295.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Transcension Academy" />
+                <h3>Transcension Academy</h3>
+                <p class="price">$18.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Transcension Academy', 18.0, 'https://static.qqtoon.com/common/029a81b195b241079ab6bf09f1156ea71737440256295.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa bl shounen ai hunter system action" 
+            data-description="DESCRIPTION : Hunter Cha Eui-jae, who was dispatched to seal a rift that appeared over the West Sea, was flung out as soon as he closed the rift. When he came to his senses, he was lying in a garbage dump.Starving, he was drawn to a hangover soup restaurant like a zombie is to blood, where he realized that he had fallen into South Korea, eight years in the future.In this era, disaster alerts notify people of rift openings in advance, ASMR videos of slimes gathered from dungeons were trending, and idle hunters livestream unboxings of A-rank longswords.Unlike the past, where people trembled in fear of an impending apocalypse, the future was surprisingly peaceful, leaving Cha Eui-jae feeling empty. Since things had turned out this way, why not start a second chapter of life as a part-timer at the hangover soup restaurant, rather than being a hunter?That's strange.'Have we met somewhere before?'Cha Eui-jae's plan to quietly spend his remaining days as the only part-time worker at the decades-old hangover soup restaurant goes awry when he encounters a mysterious, gas-masked individual">
+                <img src="https://resource.qqtoon.com/common/63418ff9460b4c4587b70e7391170f251740119693530.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="The Hunter Wants to Live Quietly" />
+                <h3>The Hunter Wants to Live Quietly</h3>
+                <p class="price">$17.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Hunter Wants to Live Quietly', 17.5, 'https://resource.qqtoon.com/common/63418ff9460b4c4587b70e7391170f251740119693530.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 2: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa shounen reborn action fantasy romance magic"
+            data-description="DESCRIPTION : King Grey has unrivaled strength, wealth, and prestige in a world governed by martial ability. However, solitude lingers closely behind those with great power. Beneath the glamorous exterior of a powerful king lurks the shell of man, devoid of purpose and will. Reincarnated into a new world filled with magic and monsters, the king has a second chance to relive his life. Correcting the mistakes of his past will not be his only challenge, however. Underneath the peace and prosperity of the new world is an undercurrent threatening to destroy everything he has worked for, questioning his role and reason for being born again.">
+                <img src="https://static.qqtoon.com/common/52106c49c9184556a7866e57777b11c81747292666064.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="The Beginning After The End" />
+                <h3>The Beginning After The End</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Beginning After The End', 18.5, 'https://static.qqtoon.com/common/52106c49c9184556a7866e57777b11c81747292666064.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shounen bromance fantasy apocalype action"
+                data-description="DESCRIPTION : Dokja was an average office worker whose sole interest was reading his favorite web novel 'Three Ways to Survive the Apocalypse.' But when the novel suddenly becomes reality, he is the only person who knows how the world will end. Armed with this realization, Dokja uses his understanding to change the course of the story, and the world, as he knows it.">
+                <img src="https://static.qqtoon.com/common/fb216a95df3d414a94a728bf3b6115891737627227643.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Omniscient Reader's Viewpoint" />
+                <h3>Omniscient Reader's Viewpoint</h3>
+                <p class="price">$18.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Omniscient Reader Viewpoint', 18.0, 'https://static.qqtoon.com/common/fb216a95df3d414a94a728bf3b6115891737627227643.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shounen bromance fantasy supernatural action adventure"
+                data-description="DESCRIPTION : Jiwoo is a kind-hearted young man who harnesses the lightning quick reflexes of a cat to secretly make the world a better place – one saved little child or foster pet at a time. Kayden is a secret agent on the run, who finds himself stuck in the body of a…um…decidedly fat old fluffy cat. Together, armed with Jiwoo’s super powers and Kayden’s uber-smarts, they’re out to fight those forces who would let evil rule this world. That is, if they can stand each other long enough to get the job done.">
+                <img src="https://static.qqtoon.com/common/724bf79461c64a3cb27cb0e6ae76e69f1738923679636.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Eleceed" />
+                <h3>Eleceed</h3>
+                <p class="price">$17.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Eleceed', 17.5, 'https://static.qqtoon.com/common/724bf79461c64a3cb27cb0e6ae76e69f1738923679636.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shounen school life action"
+            data-description="DESCRIPTION : Yu Ijin was the sole survivor of a plane crash when he was little. After becoming a mercenary to survive for 10 years, he returns to his family in his hometown.">
+                <img src="https://static.qqtoon.com/common/6ecbd5f4601d49239f4418bdafbb8a421735800861971.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Teenage Mercenary" />
+                <h3>Teenage Mercenary</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Teenage Mercenary', 18.5, 'https://static.qqtoon.com/common/6ecbd5f4601d49239f4418bdafbb8a421735800861971.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+        </div>
+
+        <!-- grid 3: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa shoujo transmigration reborn romance historical"
+                data-description="DESCRIPTION : The great Lombardi family was once at the top of the empire. After the death of its patriarch, the fate of the family and that of Firentia, born from a Lombardi and a peasant, fall to ruin at the hands of her useless and cruel cousins. But when she's reincarnated as her seven-year-old self, she'll work to protect the family's honor, gain her grandpa Lulac's favor, and prevent her own father's death. In this lifetime, there's only one way for her to win: become the head of their mighty household.">
+                <img src="https://preview.redd.it/i-shall-master-this-family-im-not-really-feeling-this-ml-v0-n5mg6idy25jf1.jpeg?auto=webp&s=05f095dfbea0333fa57e00f89d7345caf118e4f6" 
+                alt="I Shall Master This Family" />
+                <h3>I Shall Master This Family</h3>
+                <p class="price">$17.00</p>
+                <a href="#" class="btn small" onclick="addToCart('I Shall Master This Family', 17.0, 'https://preview.redd.it/i-shall-master-this-family-im-not-really-feeling-this-ml-v0-n5mg6idy25jf1.jpeg?auto=webp&s=05f095dfbea0333fa57e00f89d7345caf118e4f6')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shoujo comedy transmigration romance historical"
+            data-description="DESCRIPTION : Hyejung loved to read to escape her daily stress. But that's before she woke up inside the bizarre world of her favorite novel! Instead of the main heroine who courts three eligible men, she is now Latte Ectrie a minor villain that everyone hates?! One way or another, it's a chance to live out her most beloved storyline, with popcorn in hand to watch all the drama! Taking charge of the narrative takes on a whole new meaning">
+                <img src="https://i.redd.it/miss-not-so-sidekick-new-specials-run-has-started-v0-tp1hcqz44tgf1.jpg?width=384&format=pjpg&auto=webp&s=7e474469ee4d8dd0fa77f4dfb9febfcc13ccb84e" 
+                alt="Miss Not-So Sidekick" />
+                <h3>Miss Not-So Sidekickx</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Miss Not-So Sidekick', 18.5, 'https://i.redd.it/miss-not-so-sidekick-new-specials-run-has-started-v0-tp1hcqz44tgf1.jpg?width=384&format=pjpg&auto=webp&s=7e474469ee4d8dd0fa77f4dfb9febfcc13ccb84e')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shoujo fantasy transmigration romance magic"
+                data-description="DESCRIPTION : The beautiful Athanasia was killed at the hands of her own biological father, Claude de Alger Obelia, the cold-blooded emperor! It's just a silly bedtime story… until one woman wakes up to suddenly find she's become that unfortunate princess! She needs a plan to survive her doomed fate, and time is running out. Will she go with Plan A, live as quietly as possible without being noticed by the infamous emperor? Plan B, collect enough money to escape the palace? Or will she be stuck with Plan C, sweet-talking her way into her father's good graces?!">
+                <img src="https://resource.qqtoon.com/common/1378f4a4a4964cfcb25ca21db9e4698b1751006322464.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg"
+                    alt="Who Made Me a Princess" />
+                <h3>Who Made Me a Princess</h3>
+                <p class="price">$16.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Who Made Me a Princess',16.0, 'https://resource.qqtoon.com/common/1378f4a4a4964cfcb25ca21db9e4698b1751006322464.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shoujo transmigration romance fantasy"
+            data-description="DESCRIPTION : Penelope Eckart reincarnated as the adopted daughter of Duke Eckart and the villainess of a reverse harem dating sim. The problem is, she entered the game at its hardest difficulty, and no matter what she does, death awaits her at every ending! Before the 'real daughter' of Duke Eckart appears, she must choose one of the male leads and reach a happy ending in order to survive. But the two brothers always pick a fight with her over every little thing, as well as a crazy cgridn prince, whose routes all lead to death. There even a magician who enamoured with the female lead, and a loyal slave knight! But somehow, the favourability meters of the male leads increase the more she crosses the line with them!This is Penelope's survival story, who's been dropped in an insane reverse harem dating sim!">
+                <img src="https://resource.qqtoon.com/common/96474010debe4c5dafb93bf1018563041740119689674.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Villains Are Destined To Die" />
+                <h3>Villains Are Destined To Die</h3>
+                <p class="price">$18.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Villains Are Destined To Die', 18.0, 'https://resource.qqtoon.com/common/96474010debe4c5dafb93bf1018563041740119689674.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 4: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa shoujo historical romance"
+            data-description="DESCRIPTION : I make up my mind. If I cant be an empress here, I will be an empress somewhere else. The popular web novel Remarried Empress is adapted to webtoon!">
+                <img src="https://static.qqtoon.com/common/87596422b8af43499de404b311be04411737944085149.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="The Remarried Empress" />
+                <h3>The Remarried Empress</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Remarried Empress', 16.5, 'https://static.qqtoon.com/common/87596422b8af43499de404b311be04411737944085149.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+            
+            <div class="product-card" data-category="manhwa shoujo fantasy action "
+            data-description="DESCRIPTION : The world is in constant turmoil, with constant wars breaking out between Heroes and Villains. Gifted with supernatural abilities, one lone girl sets out on a bloody path for revenge against the injustices of the world she lives in. With the constant clashes between titans, no one is safe. If no one is willing to protect the innocent, who are the real heroes, and who are the real villains? What truly separates one from the other?">
+                <img src="https://static.qqtoon.com/common/080700e75fb741cd9692981368bc86bc1737621882821.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Hero Killer" />
+                <h3>Hero Killer</h3>
+                <p class="price">$18.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Hero Killer', 18.0, 'https://static.qqtoon.com/common/080700e75fb741cd9692981368bc86bc1737621882821.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shounen horror action supernatural fantasy zombie"
+            data-description="DESCRIPTION : In a world where everyone struggles to live, Onmirae, the only boy who wants death. One day, a death squad appeared in front of him and offered him a proposal. I'll kill you, let's rebuild human society together' To die, you have to save everyone.">
+                <img src="https://static.qqtoon.com/common/75be65aa05fa414091e5c812231979a71732255978602.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Zomgan" />
+                <h3>Zomgan</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Zomgan', 16.5, 'https://static.qqtoon.com/common/75be65aa05fa414091e5c812231979a71732255978602.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa shounen comedy murim martial art action"
+            data-description="DESCRIPTION : Chung Myung, The 13th Disciple of the Mount Hua Sect, One of the 3 Great Swordsmen, Plum Blossom Sword Saint, defeated Chun Ma, who has brought destruction and disarray onto the world. After the battle, he breathes his last breath on top of the headquarter mountain of the Heavenly Demon Sect. He is reborn after 100 years in the body of a child. What? The Mount Hua Sect has fallen? What kind of nonsense is that!?">
+                <img src="https://static.qqtoon.com/common/afd1f4625b9b40228b3580eae6ddad391737449388045.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Return Of The Mount Hua Sect" />
+                <h3>Return Of The Mount Hua Sect</h3>
+                <p class="price">$19.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Return Of The Mount Hua Sect', 19.0, 'https://static.qqtoon.com/common/afd1f4625b9b40228b3580eae6ddad391737449388045.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 5: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manga shounen sport"
+                data-description="Description : Yoichi Isagi lost the opportunity to go to the national high school championships because he passed to his teammate who missed instead of shooting himself. Isagi is one of 300 U-18 strikers chosen by Jinpachi Ego, a man who was hired by the Japan Football Association after the 2018 FIFA World Cup, to guide Japan to winning the World Cup by destroying Japanese football. Ego's plan is to isolate the 300 strikers into a prison-like institution called Above the Great Dao, in order to create the world's biggest egotist/striker, which has been lacking in Japanese football.">
+                <img src="https://cdnxyz.xyz/web/cover/10384/thumbnail.png" alt="Blue Lock" />
+                <h3>Blue Lock</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Blue Lock', 16.5, 'tps://cdnxyz.xyz/web/cover/10384/thumbnail.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manga shoujo medical historical romance"
+                data-description="DESCRIPTION : Maomao, a young woman trained in the art of herbal medicine, is forced to work as a lowly servant in the inner palace. Though she yearns for life outside its perfumed halls, she isn't long for a life of drudgery! Using her wits to break a curse afflicting the imperial heirs, Maomao attracts the attentions of the handsome eunuch Jinshi and is promoted to attendant food taster. But Jinshi has other plans for the erstwhile apothecary, and soon Maomao is back to brewing potions and solving mysteries">
+                <img src="https://cdnxyz.xyz/web/cover/89286/thumbnail.png"
+                    alt="The Apothecary Diaries" />
+                <h3>The Apothecary Diaries</h3>
+                <p class="price">$18.00</p>
+                <a href="#" class="btn small" onclick="addToCart('The Apothecary Diaries', 18.0, 'https://cdnxyz.xyz/web/cover/89286/thumbnail.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manga shounen school life martial art action"
+            data-description="DESCRIPTION : Protect the city with that fist! Bad high school student, the legend of heroes fighting cherry blossoms! The deviation value is at the bottom, and the fight is the strongest. Wind chime high school, a high school famous as a super bad school. This spring, Sakura Haruka, a first-year student of wind chime high school who came to the town aiming for the top of such wind chimes, learns that wind chime high school was a group that protects the town named 'wind chime' (bow furin). And Sakura decides to start fighting to protect the city as a member of the wind chime">
+                <img src="https://resource.qqtoon.com/common/9ea445d414ae4b959398cb1c122c536c1746611467970.webp?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Wind Breaker" />
+                <h3>Wind Breaker</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Wind Breaker', 16.5, 'https://resource.qqtoon.com/common/9ea445d414ae4b959398cb1c122c536c1746611467970.webp?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manga shounen romance supernatural action"
+            data-description="DESCRIPTION : Ken Takakura, a boy who is an occult fanatic who doesn't believe in ghosts, and Momo Ayase, a girl who doesn't believe in aliens, encounter overwhelming strangeness that transcends their mutual understanding...! An occult coming-of-age story!">
+                <img src="https://static.qqtoon.com/common/b6506ce5fa5a40d49cdb1958bde3d4611746756298793.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Dandadan" />
+                <h3>Dandadan</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Dandadan', 16.5, 'https://static.qqtoon.com/common/b6506ce5fa5a40d49cdb1958bde3d4611746756298793.jpg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 6: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhwa bl school life romance shounen ai"
+                data-description="DESCRIPTION : Hanuel, whose hobby is collecting pictures of his unrequited love, Chanil. However, he was caught by Hyunwoon, the head of the same class, by mistake. The sky is good and expects that Hyunwoon, a good student, will keep his secret... But, for some reason, it seems that Hyunwoon is playing in the hand...?">
+                <img src="https://libris.to/media/jacket/48203560o.jpg"
+                    alt="Lost in The Cloud" />
+                <h3>Lost in The Cloud</h3>
+                <p class="price">$17.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Lost in The Cloud', 17.5, 'https://libris.to/media/jacket/48203560o.jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa bl historical fantasy romance yaoi"
+            data-description="DESCRIPTION : To secure an alliance between the northern kingdom of Leracal and the southern realm of Arnata, the countries' royal families agree to a political marriage. Tei, known across the frozen battlefields as the most fearsome warrior and monster hunter, volunteers himself as the kingdom's hostage, trading his life as a warrior for that of a bride. In Arnata, Tei finds not the hostility he anticipated but the calm, steady gaze of Shuraka, the young cgridn prince destined to become both his spouse and future Padisha of the empire. For Shuraka to claim the throne, however, he must survive an uprising that threatens the kingdom - once that forces him to draw the blood of his own brothers. Moved by the courage and gentle integrity of his betrothed, Tei pledges to protect him at any costand in the quiet hours of a white night, two hearts caught between loyalty and longing begin to bloom.">
+                <img src="https://static.qqtoon.com/common/e95d26f875174effad7afe271754dafa1766041363549.webp?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Blossoms of the White Night" />
+                <h3>Blossoms of the White Night</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Blossoms of the White Night', 18.5, 'https://static.qqtoon.com/common/e95d26f875174effad7afe271754dafa1766041363549.webp?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa bl hunter fantasy romance action magic shounen ai"
+            data-description="DESCRIPTION : S Tier Hunter Sa Hyun--a member of HN, one of the world's top guilds--came to see Jeong Yi-Seon.'I came to scout you, Mr. Jeong.' 'Like he** you are, if you're approaching me like that.''I don't think you know what exactly 'he**' is, but......'Sa-hyun let out a laugh, looking just as if he were in a painting.'Let's make a contract, shall we?''I'm not interested in any 'contract,' so please stop following me. You're getting...' 'I'll take care of them for you.' 'What?'Still full of laughter, he stared right at him. He was definitely smiling, but his icy eyes still sent a shiver down Yi-Seon's spine. Sa Hyun approached the stiff Yi-seon, one step at a time. Leaning down, he whispered. Whispered in a kind, friendly voice.'Those corpses that haunt you... I'll take care of them.'">
+                <img src="https://resource.qqtoon.com/common/4c29b71bdc37408581d89c356834b6861745476295936.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Traces Of The Sun" />
+                <h3>Traces Of The Sun</h3>
+                <p class="price">$17.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Traces Of The Sun', 17.5, 'https://resource.qqtoon.com/common/4c29b71bdc37408581d89c356834b6861745476295936.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhwa bl fantasy yaoi magic reborn romance action"
+            data-description="DESCRIPTION : The future. When I realized that something I thought would be lost forever had returned, my hands shook with joy and astonishment. Yuther Aile is a commoner and the first omega to become a commander of the Imperial Cavalry. He is killed for a crime he did not commit, when he wakes up, he finds himself 11 years earlier, before it all began. He cannot repeat his previous mistakes. To survive and save the world he must now save the man he once killed! “My future won’t be the same as before. I’ll make sure of it.”">
+                <img src="https://resource.qqtoon.com/common/1843dd29422c48509c112a659bc89d2d1737078472329.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg" 
+                alt="Turning" />
+                <h3>Turning</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Turning', 18.5, 'https://resource.qqtoon.com/common/1843dd29422c48509c112a659bc89d2d1737078472329.jpeg?x-oss-process=image/resize,w_300,m_lfit/quality,q_75/format,jpg')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 7: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="manhua shounen fantasy action martial art adventure comedy"
+                data-description="DESCRIPTION : After the revivification and return of the spirit energy, men and women did their best to capture every strands of spirit energy and train, except Lu Shu, with his Negative Emotion System, he becomes stronger by taunting others! He only wanted to protect his younger sister, but the change of an era in unavoidable, then all he could do was… to taunt others in passing, and become the strongest! Then, are you ready? Here comes Lu Shu, The Great Demon King">
+                <img src="https://preview.redd.it/spare-me-great-lord-anyone-read-this-manhua-is-it-good-v0-0req9fje176c1.jpg?auto=webp&s=f440332814dd742a1e98998d6fa12a0a428bc5e2"
+                    alt="Spare Me, Great Lord" />
+                <h3>Spare Me, Great Lord!</h3>
+                <p class="price">$18.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Spare Me, Great Lord!', 18.0, 'https://preview.redd.it/spare-me-great-lord-anyone-read-this-manhua-is-it-good-v0-0req9fje176c1.jpg?auto=webp&s=f440332814dd742a1e98998d6fa12a0a428bc5e2')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhua shounen comedy fantasy martial art adventure action"
+            data-description="DESCRIPTION : This is a world where evil creatures are gradually rampaging. However, the evil creatures are strong, they all disappear after this mental hospital, and even without dignity, they are reduced to ingredients and pets. This is the green mountain mental hospital, where talents are abundant and strong people are surrounded. In this regard, the seriously ill Lin Fan, who is carrying the system, said: I am definitely not a mental patient, I am a normal person who likes to cultivate. Usually is to touch the socket, climbing high voltage box, thunder days standing on the rooftop to the heavens dance a stick method.">
+                <img src="https://preview.redd.it/the-strong-man-from-the-mental-hospital-a-fun-read-that-i-v0-wybr4cyuv46c1.jpeg?width=1080&crop=smart&auto=webp&s=e86190ce79a8bf3f13d289d538768a02e3969a09" 
+                alt="The Strong Man From The Mental Hospital" />
+                <h3>The Strong Man From The Mental Hospital</h3>
+                <p class="price">$17.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Strong Man From The Mental Hospital', 17.5, 'https://preview.redd.it/the-strong-man-from-the-mental-hospital-a-fun-read-that-i-v0-wybr4cyuv46c1.jpeg?width=1080&crop=smart&auto=webp&s=e86190ce79a8bf3f13d289d538768a02e3969a09')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhua shounen harem action reborn martial art comedy"
+            data-description="DESCRIPTION : Zhuo Yifan was a Magic Emperor or could be called a Demon Emperor because he had an ancient Emperor’s book called the Book of the Nine Secrets, he was targeted by all the experts and he was even betrayed and killed by his student. Then his soul enters and comes back to life in a family servant boy named Zhuo Fan. Because some demonic magic is holding him back, he must unite the child’s memories and cannot ignore the family and the mistress he serves. How can he lead this descending family back to the pinnacle of this continent!">
+                <img src="https://i.pinimg.com/736x/1a/57/0c/1a570c7c97c554a3fa057c3b28c0889e.jpg" 
+                alt="Magic Emperor" />
+                <h3>Magic Emperor</h3>
+                <p class="price">$17.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Magic Emperor', 17.5, 'https://i.pinimg.com/736x/1a/57/0c/1a570c7c97c554a3fa057c3b28c0889e.jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="manhua bl historical supernatural martial art romance reborn action shounen ai"
+            data-description="DESCRIPTION : The Grandmaster of Demonic Cultivation manga summary: As the grandmaster who founded the Demonic Sect, Wei WuXian roamed the world in his wanton ways, hated by millions for the chaos he created. In the end, he was back-stabbed by his dearest shidi and killed by powerful clans that combined to overpower him. He incarnates into the body of a lunatic who was abandoned by his clan and is later, unwillingly, taken away by a famous cultivator among the clansLan WangJi, his archenemy. This marks the start of a thrilling yet hilarious journey of attacking monsters, solving mysteries, and raising children. From the mutual flirtation along the way, Wei WuXian slowly realizes that Lan WangJi, a seemingly haughty and indifferent poker-face, holds more feelings for Wei WuXian than he is letting on.">
+                <img src="https://waltscomicshop.com/cdn/shop/products/grandmaster-of-demonic-cultivation-mo-dao-zu-shi-novel-vol-3-122594.jpg?v=1700234343" 
+                alt="The Grandmaster of Demonic Cultivation" />
+                <h3>The Grandmaster of Demonic Cultivation</h3>
+                <p class="price">$18.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Grandmaster of Demonic Cultivation', 18.5, 'https://waltscomicshop.com/cdn/shop/products/grandmaster-of-demonic-cultivation-mo-dao-zu-shi-novel-vol-3-122594.jpg?v=1700234343')">Add to Cart</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PRODUCT DETAIL -->
+    <div id="productDetailModal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modalImg" src alt="Book Cover">
+                <div class="modal-text">
+                    <h2 id="modalTitle">Book Title</h2>
+                    <p id="modalPrice" class="price" style="color: #0ef; font-weight: bold; font-size: 20px;"></p>
+                    <p id="modalDescription" style="margin: 15px 0; line-height: 1.6; color: white;"></p>
+                    <button id="modalAddToCartBtn" class="btn small">Add to
+                        Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">product</a>
+                <a href="#">about</a>
+            </div>
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#">My account</a>
+                <a href="#">My order</a>
+                <a href="#">My favorite</a>
+            </div>
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">Cambodia</a>
+                <a href="#">Japan</a>
+                <a href="#">China</a>
+                <a href="#">USA</a>
+                <a href="#">laos</a>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+123-456-7890</a>
+                <a href="#">Email: kookie@example.com</a>
+                <a href="#">number china -2578661</a>
+                <img src="https://pngimg.com/uploads/mastercard/mastercard_PNG23.png" width="45px">
+                <img src="https://d28wu8o6itv89t.cloudfront.net/images/Visadebitcardpng-1599584312349.png" width="40px">
+                <img src="https://fm.cnbc.com/applications/cnbc.com/resources/product_select/2024/09/06/Paypal_Debit_Card_2024.png" width="40px">
+
+            </div>
+        </div>
+        <div class="credit"> credit by
+            <span>© 2025 TobSomphors </span> | All Rights Reserved
+        </div>
+    </section>
+
+    <!-- footer section ends-->
+
+    <script src="main.js"></script>
+
+    <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    // REPLACE YOUR OLD VERSION WITH THIS ONE:
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" w3-white", "");
+        }
+        
+        // Safety checks to prevent the "Uncaught TypeError"
+        if (x[slideIndex - 1]) {
+            x[slideIndex - 1].style.display = "block";
+        }
+        if (dots[slideIndex - 1]) {
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    }
+    </script>
+
+</body>
+
+</html>

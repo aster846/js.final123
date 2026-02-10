@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aster Book Store | Novels</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+
+        <div class="logo">
+            <img src="aster logo.png" alt="Book Store">
+            <a style="text-decoration: none; color: white;" href="index.html">
+                <span>Aster Book Store</span>
+            </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-left">
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+                <a href="comics.html">
+                    <i class="fa fa-book"></i>
+                    Comics
+                </a>
+                </a>
+                <a href="novels.html">
+                    <i class="fa fa-book"></i>
+                    Novels
+                </a>
+                
+            </div>
+
+            <div class="nav-center">
+
+                <!-- Search -->
+                <input type="text" id="searchInput" class="form-control" placeholder="Search "
+                    onkeyup="searchStudent()" />
+            </div>
+
+            <div class="nav-right">
+                <a href="order.html">
+                    <i style="font-size:24px" class="fa">&#xf07a;</i>
+                    <span>Order</span>
+                </a>
+                <a href="login.html" id="navLoginLink">
+                    <i style="font-size:24px" class="fa fa-sign-in"></i>
+                    <span>Login</span>
+                </a>
+                <a href="#" id="logoutBtn" style="display: none;">
+                    <i style="font-size:24px" class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="guest-overlay" id="guestOverlay">
+        <div class="guest-form-container">
+            <h2>Welcome to Aster Book Store</h2>
+            <p>Please choose how you'd like to proceed:</p>
+            <button id="loginBtn">Log In</button>
+            <button id="guestBtn">Continue as Guest</button>
+        </div>
+    </div>
+
+    <!-- CATEGORY BUTTONS -->
+     <div style="padding: 20px 0 10px; display: flex; justify-content: center;">
+            <span style="font-size: 45px;">📖</span>
+            <strong style="font-size: 50px; color: white; margin-left: 10px;">Genre</strong>
+        </div>
+ 
+    <div class="category-filter">
+        <button class="cat-btn active" data-category="all">All</button>
+        <button class="cat-btn" data-category="danmei">Danmei</button>
+        <button class="cat-btn" data-category="shounen">Shounen</button>
+        <button class="cat-btn" data-category="shoujo">Shoujo</button>
+        <button class="cat-btn" data-category="xianxia">Xianxia</button>
+        <button class="cat-btn" data-category="xuanhuan">Xuanhuan</button>
+        <button class="cat-btn" data-category="action">Action</button>
+        <button class="cat-btn" data-category="mystery">Mystery</button>
+        <button class="cat-btn" data-category="romance">Romance</button>
+        <button class="cat-btn" data-category="harem">Harem</button>
+        <button class="cat-btn" data-category="adventure">Adventure</button>
+        <button class="cat-btn" data-category="sci-fi">Sci-fi</button>
+        <button class="cat-btn" data-category="western">Western</button>
+        <button class="cat-btn" data-category="reborn">Reborn</button>
+        <button class="cat-btn" data-category="apocalype">Apocalype</button>
+        <button class="cat-btn" data-category="fantasy">Fantasy</button>
+        <button class="cat-btn" data-category="zombie">Zombie</button>
+        <button class="cat-btn" data-category="transmigration">Transmigration</button>
+        <button class="cat-btn" data-category="martial art">Martial Art</button>
+        <button class="cat-btn" data-category="horror">Horror</button>
+    </div>
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div style="padding: 20px 0 10px 20px;">
+            <span style="font-size: 45px;">📖</span>
+            <strong style="font-size: 50px; color: white; margin-left: 10px;">Our Novels</strong>
+        </div>
+
+
+        <!-- grid 1: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="shounen xianxia fantasy mystery"
+                data-description="DESCRIPTION : My grandfather is very eccentric, performing daily rituals of offering incense to himself, standing in front of his own spirit tablet and eating candles.Villagers are fearful of my grandfather.I am fearful of him too.Later, I discovered that what they were afraid of was not my grandfather, but me.Even grandfather is afraid of me....My name is Chen Shi.The Chen of honesty, the Shi of sincerity.">
+                <img src="https://static.novelbuddy.com/images/above-the-great-dao.png" alt="Above the Great Dao" />
+                <h3>Above the Great Dao</h3>
+                <p class="price">$15.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Above the Great Dao', 15.0, 'https://static.novelbuddy.com/images/above-the-great-dao.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shounen xuanhuan fantasy mystery action adventure"
+                data-description="DESCRIPTION : In the waves of steam and machinery, who could achieve extraordinary? In the fogs of history and darkness, who was whispering? I woke up from the realm of mysteries and opened my eyes to the world.">
+                <img src="https://static.novelbuddy.com/images/lord-of-the-mysteries.png"
+                    alt="Lord of the Mysteries" />
+                <h3>Lord of the Mysteries</h3>
+                <p class="price">$16.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Lord of the Mysteries', 16.0, 'https://static.novelbuddy.com/images/lord-of-the-mysteries.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shounen fantasy action"
+                data-description="DESCRIPTION : Kai of the Sorcerer's Tower is one of the last mages left, barely surviving in a world ruled by creatures of the dark where the era of mages ended, and most of the lands got contaminated with dead mana. To save his world and fulfil his master's last wish, he put himself through a forbidden ritual, risking his soul being ripped into pieces to make his way into the past. In an era with abundant mana an era yet to enter the Golden Era of Magic. Things go wrong, of course, as they always do, and he finds himself thousands of years before the world fell to mana contamination in the body of a young lord, Arzan. All is not well, though, as the young lord was murdered by someone right at the cusp of a beast wave threatening the territory, while larger threats loom on the horizon. There was a lot to do for Kai to regain his former strength in this time of primitive technology, but then again, he might just be able to change that.">
+                <img src="https://static.novelbuddy.com/images/magus-reborn.png"
+                    alt="Magus Reborn" />
+                <h3>Magus Reborn</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Magus Reborn', 14.5, 'https://static.novelbuddy.com/images/magus-reborn.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shounen fantasy action transmigration"
+            data-description="DESCRIPTION :  When I opened my eyes, I was inside the novel. Not only that, I was inside the body of the infamous trash of the count's family And the overpowered protagonist, Choi Han, who beats me to a pulp inside the novel is soon about to arrive.">
+                <img src="https://static.novelbuddy.com/images/trash-of-the-counts-family.png" 
+                alt="Trash of the Count's Family" />
+                <h3>Trash of the Count's Family</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Trash of the Count’s  Family', 15.5, 'https://static.novelbuddy.com/images/trash-of-the-counts-family.png')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 2: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="shoujo sci-fi mecha action martial art adventure"
+                data-description="DESCRIPTION :  After dying from a strange terminal illness, Ling Lan was reborn into a world 10000 years into the future. Although she dearly wished she could just live a peaceful and uneventful life in her new healthy body, fate had other plansForced to disguise herself as a boy just so she could inherit her deceased father's premium military benefits, Ling Lan's journey to adulthood was full of challenges. After much difficulty, she finally turned sixteen when she could drop the charade. But before she could grasp her newfound freedom to get married and start her own family, a twist of fate results in her being thgridn into the Federation's top military boys' school.With these twists of fate, Ling Lan had little choice but to walk further and further down a path of no return, one of cold and aloof dominance">
+                <img src="https://static.novelbuddy.com/images/its-not-easy-to-be-a-man-after-travelling-to-the-future.png"
+                    alt="It's Not Easy to Be a Man After Travelling to the Future" />
+                <h3>It's Not Easy to Be a Man After Travelling to the Future</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('It’s Not Easy to Be a Man After Travelling to the Future', 15.5, 'https://static.novelbuddy.com/images/its-not-easy-to-be-a-man-after-travelling-to-the-future.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shoujo fantasy historical western reborn romance"
+                data-description="DESCRIPTION : In the original lines of the novel, I was a villainessused as a political tool by my father and older brotherwho ended up dying at the hands of my future husband.">
+                <img src="https://static.novelbuddy.com/images/how-to-get-my-husband-on-my-side.png"
+                    alt="How to Get My Husband on My Side" />
+                <h3>How to Get My Husband on My Side</h3>
+                <p class="price">$15.00</p>
+                <a href="#" class="btn small" onclick="addToCart('How to Get My Husband on My Side', 15.0, 'https://static.novelbuddy.com/images/how-to-get-my-husband-on-my-side.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shoujo reborn romance western"
+            data-description="DESCRIPTION : With the marriage of her prostitute mother to the Count, Aria's status in society skyrocketed immediately. After leading a life of luxury, Aria unfairly meets death because of her sister Mielle's schemes. And right before she dies, she sees an hourglass fall as if it were a fantasy. And just like that, she was miraculously brought back to the past.'I want to become a very elegant person, just like my sister, Mielle.'In order to face the villainess, she must become an even more wicked villainess. This was the new path Aria chose to take revenge on Mielle who murdered both her and her mother.">
+                <img src="https://static.novelbuddy.com/images/the-villainess-turns-the-hourglass.png" 
+                alt="The Villainess turns the Hourglass" />
+                <h3>The Villainess turns the Hourglass</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Villainess turns the Hourglass', 14.5, 'https://static.novelbuddy.com/images/the-villainess-turns-the-hourglass.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shoujo fantasy western comedy romance"
+            data-description="DESCRIPTION : There was a big scandal in the Mu family.The real daughter of the Mu family was switched by the nanny since she was a child. The Mu family didn't bring her back from countryside until 17 years later!After the true daughter returned There was no affection, only sympathy.The Mu family parents asked her, 'We have a deep relationship with Yaoyao. We can't let her lose face. We can only announce you as an adopted daughter to the outside world. You won't blame us, right?'Her fiance also said: 'My fiance can only be Yaoyao! Get out of here country bumpkin.'The attitude of her older brother Mu Qingyi was even more complicated.Yet despite all that, the real daughter, Xu Xinduo, said indifferently, 'It doesn't matter.'***From a young age Xu Xinduo could swap bodies with a certain teenager. That teenager would always exclaim in an annoyed tone, 'Let's switch bodies, I just don't feel like taking piano lessons.Xu Xinduo helped the teenager to win various trophies, become a top student and honed his noble temperament and talent after taking over his body.***At a banquet, everyone in the Mu family watched as a rich young master strode towards Xu Xinduo and said, 'Be my girlfriend, although you are from a small family you are very beautiful.'With a smile Xu Xinduo replied, 'I'm starting to miss my parents already.'Such a quick change of attitude?!The romantic story of the indifferent real daughter x a filthy rich despotic young masterNote: Here 'switching bodies' means swapping of souls. It's temporary and doesn't involve any physical changes.">
+                <img src="https://static.novelbuddy.com/images/the-legitimate-daughter-doesnt-care.png" 
+                alt="The Legitimate Daughter Doesn’t Care!" />
+                <h3>The Legitimate Daughter Doesn’t Care!</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Legitimate Daughter Doesn’t Care!', 14.5, 'https://static.novelbuddy.com/images/the-legitimate-daughter-doesnt-care.png')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 3: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="shounen xianxia fantasy action"
+            data-description="DESCRIPTION : The Dayan Empire had enjoyed a reign of over thirteen hundred years.The Emperor was critically ill, the Crown Prince was regent, local immortal sects were entrenched, and central authorities were vying for power in the chaotic court.Upon waking,Xu Yuan saw a dilapidated temple in the mountain rain at night,saw the eerie, broken-armed stone Buddha,and,the mysterious woman by the fire, her face veiled by thin gauze.......He had become the ultimate villain's third son, of pure heritage and legitimate lineage.The fake villain, dressed in fine garments and enjoying luxurious feasts, simply waited to be humiliated, while the real villain was caught by the Big Ice Lump and dragged across the world in flight from the start.Golden finger?Only a fake villain relied on a golden finger to get rich, a true villain dared to confront a bleak life!'If Heaven had not birthed me, Xu Changtian, villains would be as eternal as the never-ending night.'">
+                <img src="https://static.novelbuddy.com/images/let-me-explain-fairy.png" 
+                alt="Let Me Explain, Fairy" />
+                <h3>Let Me Explain, Fairy</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Let Me Explain, Fairy', 14.5, 'https://static.novelbuddy.com/images/let-me-explain-fairy.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shounen fantasy action"
+            data-description="DESCRIPTION : After living a mundane life for over a decade, one night, Ji Minghuan suddenly awakened a unique ability to 'create game characters in the Real World,'' and each character came with its own main quest and a special skill tree system.Since then, he couldn't stop himself. He kept creating new characters in the Real World, developing skill trees, and cultivating character systems... all he needed to do was to enhance the character's reputation to strengthen their abilities. Thus, he started causing trouble in every way possible to attract attention, stirring chaos like a stick in the world of superheroes and supervillains.When he came to his senses, Ji Minghuan was sitting on the moon, gazing at the devastated blue planet, with a group of maxed-out game characters standing behind him. He couldn't help but innocently exclaim:'I really didn't intend to destroy the world at the beginning!'">
+                <img src="https://static.novelbuddy.com/images/my-avatar-is-becoming-the-ultimate-boss.png" 
+                alt="My Avatar is Becoming the Ultimate BOSS" />
+                <h3>My Avatar is Becoming the Ultimate BOSS</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('My Avatar is Becoming the Ultimate BOSS', 14.5, 'https://static.novelbuddy.com/images/my-avatar-is-becoming-the-ultimate-boss.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shounen fantasy action transmigration"
+            data-description="DESCRIPTION : Growing up in poverty, Sunny never expected anything good from life. However, even he did not anticipate being chosen by the Nightmare Spell and becoming one of the Awakened - an elite group of people gifted with supernatural powers. Transported into a ruined magical world, he found himself facing against terrible monsters - and other Awakened - in a deadly battle of survival.What's worse, the divine power he received happened to possess a small, but potentially fatal side effect...">
+                <img src="https://static.novelbuddy.com/images/shadow-slave.png" 
+                alt="Shadow Slave" />
+                <h3>Shadow Slave</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Shadow Slave', 16.5, 'https://static.novelbuddy.com/images/shadow-slave.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="shounen fantasy action romance"
+            data-description="DESCRIPTION : The Third Dimension iscollapsing. The Fourth Dimension isdescending.First itseemed that only technology would evolve, but who knew the world itself couldtoo? Itwasn't assimple asclimate change ortectonic movement. No, the fundamental laws ofphysics that governed everything were changing.Leonel was fairly lucky. His family was decently well off, his father loved him enough tobrew vomit inducing nutrient rich smoothies every morning, and this was both the day ofthe National Championship and his 521st confession tohis dream girl, Aina. Ashis father always said, nothing was more important than respect and persistence.Unfortunately, everything changed that night. Atthe after party ofages, the world reached asaturation point and anapocalypse descended.Abilities awakened. Sub-Dimensional Zones opened. Invalids rampaged through the Earth like avirusThose who could evolve would have aslim chance for survival. Those who couldn't would die.">
+                <img src="https://static.novelbuddy.com/images/dimensional-descent.png" 
+                alt="Dimensional Descent" />
+                <h3>Dimensional Descent</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Dimensional Descent', 15.5, 'https://static.novelbuddy.com/images/dimensional-descent.png')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 4: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="danmei apocalype fantasy action zombie adventure"
+                data-description="DESCRIPTION : Yun Che, a big shot in the doomsday, who even the militaries drooled upon, finally died in the hands of his beloved and family. After reincarnation, he wanted to live for his own! Xing Feng, a rooting third military generation, didn’t lay his heart in the army at all. So when he turned to 20, he chose to leave the army and went into business. When the doomsday came, he accidentally met Yun Chen and started a new chapter of his life, meanwhile, his moral bottom line kept hitting a new low…">
+                <img src="https://cdn.novelupdates.com/images/2019/12/ymr.jpg"
+                    alt="Young Military Rarities" />
+                <h3>Young Military Rarities</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Young Military Rarities', 15.5, 'https://cdn.novelupdates.com/images/2019/12/ymr.jpg')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei apoclype transmigration reborn zombie martial art action harem"
+                data-description="DESCRIPTION : This is a story about Gong Lixin who was the young master of an ancient underground palace in the ancient times. He was raised by his master and forced to partake sexual relationships with numerous people to cultivate his Yin Body. His master who has a Yang Body was going to absorb him after he has reach a level to become stronger. MC refused and killed his master also dying at the same time. Then he transmigrated to the modern time and thinking he will enjoy peaceful life, the end of the world arrived.">
+                <img src="https://static.novelbuddy.com/images/lord-of-end-of-world.png" alt="Lord of End of World" />
+                <h3>Lord of End of World</h3>
+                <p class="price">$13.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Lord of End of World', 13.0, 'https://static.novelbuddy.com/images/lord-of-end-of-world.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei fantasy action"
+                data-description="DESCRIPTION : One day, You Huo and his famiIy was puIIed into an exam caIIed the GIobaI University Entrance Examination. Going through exams together with other unfortunate examinees, their Iives are put at stake and they can only Iive by passing each exam. However, something about these exams and the system controIIing it didn't seem right lt seemed to be trying to trap the examinees with ridiculous ruIes and strange questions">
+                <img src="https://static.novelbuddy.com/images/global-university-entrance-examination.png"
+                    alt="Global University Entrance Examination" />
+                <h3>Global University Entrance Examination</h3>
+                <p class="price">$15.00</p>
+                <a href="#" class="btn small" onclick="addToCart('Global University Entrance Examination', 15.0, 'https://static.novelbuddy.com/images/global-university-entrance-examination.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei action romance"
+            data-description="DESCRIPTION : A letter to break off the engagement leads Ling Family in Tangyang to endless doom. And he, Ling Zhang, is tortured to death after his legs are cruelly broken.This time after rebirth, he swears to restore glory to his family and to seek revenge. The very first he should do is to break the engagement himself!Yuewen Family? Far in the capital enjoying high privilege and glory?I simply don’t care.You think yourself some delicious cake that everyone crazes to grab a bite?Bah! Too hard that it hurts my teeth!Yet never has Ling Zhang expected that this ‘hard cake’ would promise him a life of glory after rebirth.">
+                <img src="https://static.novelbuddy.com/images/the-glory-after-rebirth.png" 
+                alt="The Glory After Rebirth" />
+                <h3>The Glory After Rebirth</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('The Glory After Rebirth', 15.5, 'https://static.novelbuddy.com/images/the-glory-after-rebirth.png')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 5: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="danmei action horror fantasy romance"
+            data-description="DESCRIPTION : Six months ago, tens of thousands of black phantom towers appeared all over the world, floating above the cities. Chemists, physicists, religious people… all of them could do nothing. Six months later, people became used to the towers and no longer paid them attention. One day, Tang Mo saw a flying insect crash into it instead of going through it. The next day, a sharp and clear child-like voice issued an announcement to all humans. “Ding dong! November 15th, 2017. The earth is online.” The black tower’s three iron-clad rules:
+            1. Everything is explained by the black tower. 
+            2. 6 o’clock to 18 o’clock is the game time. 
+            3. All players, please strive to attack the tower.">
+                <img src="https://static.novelbuddy.com/images/the-earth-is-online.png" 
+                alt="The Earth is Online" />
+                <h3>The Earth is Online</h3>
+                <p class="price">$16.00</p>
+                <a href="#" class="btn small" onclick="addToCart('The Earth is Online', 16.0, 'https://static.novelbuddy.com/images/the-earth-is-online.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei romance action hunter transmigration"
+            data-description="DESCRIPTION : I had a supporting role in a modern fantasy.The loyal dog of a villain with an angel's name, Cheon Sa-yeon, and an unfortunate supporting character who died on his behalf, Han Yi-gyeol.In order to escape from Cheon Sa-yeon and survive, he must use the protagonist, Ha Tae-heon.But Ha Tae-heon, who he thought of as a lifeline, was infinitely indifferent to him. Rather, Cheon Sa-yeon showed interest.But besides that, something strange happened.The events that occurred in the original story had advanced, and the gate and monster levels had risen. Even the people were 'different' from the original.The original version I was trying to use was wrong.">
+                <img src="https://static.novelbuddy.com/images/i-dont-want-this-reincarnation.png" 
+                alt="I Don’t Want This Reincarnation" />
+                <h3>I Don’t Want This Reincarnation</h3>
+                <p class="price">$16.50</p>
+                <a href="#" class="btn small" onclick="addToCart('I Don’t Want This Reincarnation', 16.5, 'https://static.novelbuddy.com/images/i-dont-want-this-reincarnation.png')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei zombie action romance"
+            data-description="DESCRIPTION : What is the most important thing about rebirth before the apocalypse? Grain storage? No, it's trying to find the most important person in the past life! Reject the so-called relatives who have evil intentions! The abilities of the previous life have followed, and their golden fingers have suddenly become very big. Mutant plants, farming space, enough to feed himself and that man! Su Ruizhe took out a handful of cherries and chili peppers with a simple smile: 'Honey, these ingredients, oh no landmines, you take them and throw them out when you meet a zombie! But don't eat it!'' Zhan Yun: 'Wife is good at everything, but just a little silly'">
+                <img src="https://static.novelbuddy.com/images/mtl-my-cherry-will-explode-in-the-apocalypse.webp" 
+                alt="My Cherry Will Explode in the Apocalypse" />
+                <h3>My Cherry Will Explode in the Apocalypse</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('My Cherry Will Explode in the Apocalypse', 14.5, 'https://static.novelbuddy.com/images/mtl-my-cherry-will-explode-in-the-apocalypse.webp')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei romance martial art action"
+            data-description="DESCRIPTION : Yan Wushi had walked a path full of blood and corpses.He did not believe in the good nature of humanity. Even more so, he did not believe that there could be someone with great kindness and sense of justice, who would be so considerate of others without asking anything in return.One day, Shen Qiao, who was the sect leader of Mount Xuandu, the number one Daoist sect under the heavens, was challenged to a duel but somehow fell off the cliff.Yan Wushi happened to pass by down there.Seeing Shen Qiao who was seriously injured to the point of dying, he suddenly came up with a perfect ideaAfter thousands of autumns, who could stay eternal?">
+                <img src="https://static.novelbuddy.com/images/mtl-thousand-autumns.webp" alt="Thousand Autumns" />
+                <h3>Thousand Autumns</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Thousand Autumns', 15.5, 'https://static.novelbuddy.com/images/mtl-thousand-autumns.webp')">Add to Cart</a>
+            </div>
+        </div>
+
+        <!-- grid 6: -->
+        <div class="product-grid">
+            <div class="product-card" data-category="danmei superstar romance"
+            data-description="DESCRIPTION : Jiang Dao died extremely heroically in the apocalyptic world war. He never thought that he would have a chance to open his eyes again.He traveled through, into a danmei book he had read, and became a vicious villain in the book.Jiang Dao thought to himself: 'After more than ten years of fighting for my life in the last days, I'm tired, so what am I fighting for? It's better to be a vase. Use my face to finish the brokerage contract, and then find a corner in the world with beautiful scenery and live a peaceful life of growing vegetables, cooking, and raising cats and dogs'So, he returned the role that the original owner had snatched from the protagonist shou on the spot.Unexpectedly, in the variety show that started shooting the next day, Jiang Dao performed a shoulder toss and threw the current number one kung fu actor, Chu Yinlong, to the ground.Chu Yinlong: Boy, you have successfully caught my attention. My new movie, the villain, can fight, you come.Jiang Dao: Sorry, I'm just a vase.In a later interview.A reporter asked Chu Yinlong: 'How would you rate your perfect partner, Mr. Jiang Dao?'Chu Yinlong replied: 'A vase.'Reporter: 'How can a kung fu superstar as famous as him be a vase?'Chu Yinlong: 'Diamond vase. Precious, beautiful, hard enough.'">
+                <img src="https://static.novelbuddy.com/images/mtl-after-entering-a-book-he-just-wants-to-be-a-flower-vase.webp" 
+                alt="After Entering a Book, He Just Wants to be a Flower Vase" />
+                <h3>After Entering a Book, He Just Wants to be a Flower Vase</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('After Entering a Book, He Just Wants to be a Flower Vase', 14.5,'https://static.novelbuddy.com/images/mtl-after-entering-a-book-he-just-wants-to-be-a-flower-vase.webp')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei superstar romance" 
+            data-description="DESCRIPTION : In his last life, he was a superstar that dominated the entertainment circle. In this life, he is a rebellious second generation wastrel.Confronting the aunt and uncle who wants to seize the family property and getting rid of those slag friends who only know how to eat and drinkRong Xu: To not speak out means to perish in the silence!From starting out as a third-rate celebrity, he had to rely on his own efforts to rise to the top of the entertainment circle, aspiring to once again sit on the throne!Their first meeting Rong Xu: Hello, I'm Rong Xu. This would be our first time meeting, I would appreciate your guidance.Qin Cheng: !!! (Aahhh, He's so cute! I really want to sleep with him!)">
+                <img src="https://static.novelbuddy.com/images/mtl-superstar-aspirations.webp" 
+                alt="Superstar Aspirations" />
+                <h3>Superstar Aspirations</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Superstar Aspirations', 14.5, 'https://static.novelbuddy.com/images/mtl-superstar-aspirations.webp')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei romance fantasy"
+            data-description="DESCRIPTION : The youngest, silly fourteenth son of the Yan Emperor had reached the age where he should be given a separated territory now. He rejected the wealthy land, neighbouring the capital city, and instead chose the wildest land in the western region Liangcheng. Everyone shook their heads and sighed. A fool is indeed a fool. If you go to Liangcheng, you will be killed by barbarians in less than three to five years.One year later, the watermelon presented to the Emperor as the tribute from Liangcheng in the west was sweet and crispy. There was no one in the palace who did not love it.Two years later, Liangcheng presented corn as a tribute to the Emperor. The yield was high, and the taste was good. No one in the country could resist liking it.Three years later, Liangcheng defeated the barbarians and presented their prisoners in front of the imperial court. The people of Yan were excited and their morale was greatly boosted.Four years later Everyone said that the fourteenth prince Mingyu was a fool, while the little fatty Yu, who transmigrated with the golden finger, chuckled. Let's see how you guys look at this fool build his own territory, then.">
+                <img src="https://static.novelbuddy.com/images/mtl-i-built-a-territory-in-ancient-times.webp" 
+                alt="I Built a Territory in Ancient Times" />
+                <h3>I Built a Territory in Ancient Times</h3>
+                <p class="price">$14.50</p>
+                <a href="#" class="btn small" onclick="addToCart('I Built a Territory in Ancient Times', 14.5, 'https://static.novelbuddy.com/images/mtl-i-built-a-territory-in-ancient-times.webp')">Add to Cart</a>
+            </div>
+
+            <div class="product-card" data-category="danmei romance" 
+            data-description="DESCRIPTION : The most awesome thing that the timid and shy Wen Zhichu did in his life was to save two elementary school students who were crossing the road recklessly. For the first time in his life, he had successfully tried to show his bravery. In the process, he also successfully died.When he woke up again, he found that he had transmigrated into the book as a cannon fodder villain who repeatedly kept making trouble for the protagonist, and finally because of offending the protagonist, he was forced to sleep on the streets.Since he was a child, his mother had told him that his body was delicate.Wen Zhichu, who couldn't sleep on the street: !!!!!Just when Wen Zhichu planned to not participate in the plot at all, he was accidentally bound to a villain system. If he didn't make trouble for the protagonist according to the original plot, his money would be deducted, and he will have to go to sleep on the streets earlier than in the original novel.Wen Zhichu: -smile-Wen Zhichu was forced to follow the path of the villain, and every time he saw the protagonist's strong body, his calf trembled. The protagonist's single punch looked like it was enough to kill two Wen Zhichus.Villain's Mission: Destroy the protagonist's lunch.">
+                <img src="https://static.novelbuddy.com/images/mtl-villains-strategy.webp" 
+                alt="Villain’s Strategy" />
+                <h3>Villain’s Strategy</h3>
+                <p class="price">$15.50</p>
+                <a href="#" class="btn small" onclick="addToCart('Villain’s Strategy', 15.5,'https://static.novelbuddy.com/images/mtl-villains-strategy.webp')">Add to Cart</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PRODUCT DETAIL -->
+    <div id="productDetailModal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modalImg" src alt="Book Cover">
+                <div class="modal-text">
+                    <h2 id="modalTitle">Book Title</h2>
+                    <p id="modalPrice" class="price" style="color: #0ef; font-weight: bold; font-size: 20px;"></p>
+                    <p id="modalDescription" style="margin: 15px 0; line-height: 1.6; color: white;"></p>
+                    <button id="modalAddToCartBtn" class="btn small">Add to
+                        Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">product</a>
+                <a href="#">about</a>
+            </div>
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#">My account</a>
+                <a href="#">My order</a>
+                <a href="#">My favorite</a>
+            </div>
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">Cambodia</a>
+                <a href="#">Japan</a>
+                <a href="#">China</a>
+                <a href="#">USA</a>
+                <a href="#">laos</a>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+123-456-7890</a>
+                <a href="#">Email: kookie@example.com</a>
+                <a href="#">number china -2578661</a>
+                <img src="https://pngimg.com/uploads/mastercard/mastercard_PNG23.png" width="45px">
+                <img src="https://d28wu8o6itv89t.cloudfront.net/images/Visadebitcardpng-1599584312349.png" width="40px">
+                <img src="https://fm.cnbc.com/applications/cnbc.com/resources/product_select/2024/09/06/Paypal_Debit_Card_2024.png" width="40px">
+
+            </div>
+        </div>
+        <div class="credit"> credit by
+            <span>© 2025 TobSomphors </span> | All Rights Reserved
+        </div>
+    </section>
+
+    <!-- footer section ends-->
+
+    <script src="main.js"></script>
+
+    <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    </script>
+
+</body>
+
+</html>
